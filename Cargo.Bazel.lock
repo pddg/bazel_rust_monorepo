@@ -1,0 +1,38 @@
+{
+  "checksum": "e26f1f29cd499bcb6afc155c733e544af7b267b41a4dd67e2b46ba22548bf1b1",
+  "crates": {
+    "mono 0.1.0": {
+      "name": "mono",
+      "version": "0.1.0",
+      "repository": null,
+      "targets": [
+        {
+          "Binary": {
+            "crate_name": "mono",
+            "crate_root": "src/main.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": null,
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2021",
+        "version": "0.1.0"
+      },
+      "license": null
+    }
+  },
+  "binary_crates": [],
+  "workspace_members": {
+    "mono 0.1.0": ""
+  },
+  "conditions": {}
+}

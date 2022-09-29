@@ -20,3 +20,27 @@ rust_register_toolchains(
     version = "1.64.0",
 )
 
+load("@rules_rust//crate_universe:defs.bzl", "crates_repository")
+
+crates_repository(
+    name = "crate_index",
+    # CargoのLockファイルへのパス
+    cargo_lockfile = "//:Cargo.lock",
+    # bazelが管理するLockファイル、まだ存在しない
+    lockfile = "//:Cargo.Bazel.lock",
+    # 実在するCargo.tomlへのパス
+    manifests = ["//:Cargo.toml"],
+    rust_version = "1.64.0",
+    # 自分の使うtripleを記述しておく
+    supported_platform_triples = [
+        "x86_64-unknown-linux-gnu",
+        "x86_64-apple-darwin",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-apple-darwin",
+    ],
+)
+
+load("@crate_index//:defs.bzl", "crate_repositories")
+
+crate_repositories()
+
