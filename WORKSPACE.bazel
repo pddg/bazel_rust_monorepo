@@ -31,13 +31,6 @@ crates_repository(
     # 実在するCargo.tomlへのパス
     manifests = ["//:Cargo.toml"],
     rust_version = "1.64.0",
-    # 自分の使うtripleを記述しておく
-    supported_platform_triples = [
-        "x86_64-unknown-linux-gnu",
-        "x86_64-apple-darwin",
-        "aarch64-unknown-linux-gnu",
-        "aarch64-apple-darwin",
-    ],
 )
 
 load("@crate_index//:defs.bzl", "crate_repositories")
