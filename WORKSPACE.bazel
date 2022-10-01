@@ -29,7 +29,10 @@ crates_repository(
     # bazelが管理するLockファイル、まだ存在しない
     lockfile = "//:Cargo.Bazel.lock",
     # 実在するCargo.tomlへのパス
-    manifests = ["//:Cargo.toml"],
+    manifests = [
+        "//:Cargo.toml",
+        "//cmd/show-latest-release:Cargo.toml"
+    ],
     rust_version = "1.64.0",
 )
 

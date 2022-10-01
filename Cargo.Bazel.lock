@@ -1,5 +1,5 @@
 {
-  "checksum": "e1b17c202cdfa416aa64d7a9943e818462c2ea762928d4278f979612339af164",
+  "checksum": "040d9ce998636164d538d82631180b273f7f09ed5ae4cf6ce2f0ce7824c56758",
   "crates": {
     "anyhow 1.0.65": {
       "name": "anyhow",
@@ -425,6 +425,34 @@
         ]
       },
       "license": "MIT / Apache-2.0"
+    },
+    "direct-cargo-bazel-deps 0.0.1": {
+      "name": "direct-cargo-bazel-deps",
+      "version": "0.0.1",
+      "repository": null,
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "direct_cargo_bazel_deps",
+            "crate_root": ".direct_cargo_bazel_deps.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": "direct_cargo_bazel_deps",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "edition": "2018",
+        "version": "0.0.1"
+      },
+      "license": null
     },
     "encoding_rs 0.8.31": {
       "name": "encoding_rs",
@@ -2195,59 +2223,6 @@
       },
       "license": "MIT"
     },
-    "mono 0.1.0": {
-      "name": "mono",
-      "version": "0.1.0",
-      "repository": null,
-      "targets": [
-        {
-          "Binary": {
-            "crate_name": "mono",
-            "crate_root": "src/main.rs",
-            "srcs": {
-              "include": [
-                "**/*.rs"
-              ],
-              "exclude": []
-            }
-          }
-        }
-      ],
-      "library_target_name": null,
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "anyhow 1.0.65",
-              "target": "anyhow"
-            },
-            {
-              "id": "reqwest 0.11.12",
-              "target": "reqwest"
-            },
-            {
-              "id": "serde 1.0.145",
-              "target": "serde"
-            },
-            {
-              "id": "serde_json 1.0.85",
-              "target": "serde_json"
-            },
-            {
-              "id": "tokio 1.21.2",
-              "target": "tokio"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2021",
-        "version": "0.1.0"
-      },
-      "license": null
-    },
     "native-tls 0.2.10": {
       "name": "native-tls",
       "version": "0.2.10",
@@ -3887,6 +3862,59 @@
         "version": "0.7.1"
       },
       "license": "MIT/Apache-2.0"
+    },
+    "show-latest-release 0.1.0": {
+      "name": "show-latest-release",
+      "version": "0.1.0",
+      "repository": null,
+      "targets": [
+        {
+          "Binary": {
+            "crate_name": "show-latest-release",
+            "crate_root": "src/main.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": null,
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "anyhow 1.0.65",
+              "target": "anyhow"
+            },
+            {
+              "id": "reqwest 0.11.12",
+              "target": "reqwest"
+            },
+            {
+              "id": "serde 1.0.145",
+              "target": "serde"
+            },
+            {
+              "id": "serde_json 1.0.85",
+              "target": "serde_json"
+            },
+            {
+              "id": "tokio 1.21.2",
+              "target": "tokio"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2021",
+        "version": "0.1.0"
+      },
+      "license": null
     },
     "signal-hook-registry 1.4.0": {
       "name": "signal-hook-registry",
@@ -6216,7 +6244,8 @@
     "cc 1.0.73"
   ],
   "workspace_members": {
-    "mono 0.1.0": ""
+    "direct-cargo-bazel-deps 0.0.1": "",
+    "show-latest-release 0.1.0": "cmd/show-latest-release"
   },
   "conditions": {
     "aarch64-pc-windows-msvc": [],
