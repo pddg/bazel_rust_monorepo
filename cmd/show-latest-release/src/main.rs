@@ -1,31 +1,15 @@
-use anyhow::{anyhow, Result};
-use reqwest::Client;
-use serde::Deserialize;
-
-#[derive(Deserialize)]
-struct Release {
-    url: String,
-    tag_name: String,
-    name: String,
-}
+use anyhow::Result;
+use github::Client;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let client = Client::new();
-    let resp = client
-        .get("https://api.github.com/repos/bazelbuild/rules_rust/releases/latest")
-        // User-Agentがないと403で蹴られる
-        // https://docs.github.com/en/rest/overview/resources-in-the-rest-api#user-agent-required
-        .header("User-Agent", "sample")
-        .send()
+    let client = Client::new("https://api.github.com");
+    let latest_release = client
+        .get_latest_release("bazelbuild", "rules_rust")
         .await?;
-    if resp.status() != 200 {
-        return Err(anyhow!("invalid status code"));
-    }
-    let j = resp.json::<Release>().await?;
     println!("github.com/bazelbuild/rules_rust");
-    println!("Latest release is {}", j.name);
-    println!("And its tag is {}", j.tag_name);
-    println!("{}", j.url);
+    println!("Latest release is {}", latest_release.name);
+    println!("And its tag is {}", latest_release.tag_name);
+    println!("{}", latest_release.url);
     Ok(())
 }
