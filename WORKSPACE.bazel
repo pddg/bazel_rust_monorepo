@@ -31,7 +31,8 @@ crates_repository(
     # 実在するCargo.tomlへのパス
     manifests = [
         "//:Cargo.toml",
-        "//cmd/show-latest-release:Cargo.toml"
+        "//cmd/show-latest-release:Cargo.toml",
+        "//rust/github:Cargo.toml",
     ],
     rust_version = "1.64.0",
 )

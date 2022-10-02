@@ -1,4 +1,5 @@
 [workspace]
 members = [
     "cmd/show-latest-release",
+    "rust/github",
 ]

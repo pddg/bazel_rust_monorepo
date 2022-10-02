@@ -1,5 +1,5 @@
 {
-  "checksum": "040d9ce998636164d538d82631180b273f7f09ed5ae4cf6ce2f0ce7824c56758",
+  "checksum": "7c0c35c6af1bfcb65226e0a0b1ba83af06389c3bd18e528a011bfe36d1b671f8",
   "crates": {
     "anyhow 1.0.65": {
       "name": "anyhow",
@@ -1022,6 +1022,51 @@
         ]
       },
       "license": "MIT OR Apache-2.0"
+    },
+    "github 0.1.0": {
+      "name": "github",
+      "version": "0.1.0",
+      "repository": null,
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "github",
+            "crate_root": "src/lib.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": "github",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "reqwest 0.11.12",
+              "target": "reqwest"
+            },
+            {
+              "id": "serde 1.0.145",
+              "target": "serde"
+            },
+            {
+              "id": "thiserror 1.0.37",
+              "target": "thiserror"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2021",
+        "version": "0.1.0"
+      },
+      "license": null
     },
     "h2 0.3.14": {
       "name": "h2",
@@ -4267,6 +4312,124 @@
       },
       "license": "MIT OR Apache-2.0"
     },
+    "thiserror 1.0.37": {
+      "name": "thiserror",
+      "version": "1.0.37",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/thiserror/1.0.37/download",
+          "sha256": "10deb33631e3c9018b9baf9dcbbc4f737320d2b576bac10f6aefa048fa407e3e"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "thiserror",
+            "crate_root": "src/lib.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        },
+        {
+          "BuildScript": {
+            "crate_name": "build_script_build",
+            "crate_root": "build.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": "thiserror",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "thiserror 1.0.37",
+              "target": "build_script_build"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "proc_macro_deps": {
+          "common": [
+            {
+              "id": "thiserror-impl 1.0.37",
+              "target": "thiserror_impl"
+            }
+          ],
+          "selects": {}
+        },
+        "version": "1.0.37"
+      },
+      "build_script_attrs": {
+        "data_glob": [
+          "**"
+        ]
+      },
+      "license": "MIT OR Apache-2.0"
+    },
+    "thiserror-impl 1.0.37": {
+      "name": "thiserror-impl",
+      "version": "1.0.37",
+      "repository": {
+        "Http": {
+          "url": "https://crates.io/api/v1/crates/thiserror-impl/1.0.37/download",
+          "sha256": "982d17546b47146b28f7c22e3d08465f6b8903d0ea13c1660d9d84a6e7adcdbb"
+        }
+      },
+      "targets": [
+        {
+          "ProcMacro": {
+            "crate_name": "thiserror_impl",
+            "crate_root": "src/lib.rs",
+            "srcs": {
+              "include": [
+                "**/*.rs"
+              ],
+              "exclude": []
+            }
+          }
+        }
+      ],
+      "library_target_name": "thiserror_impl",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "proc-macro2 1.0.46",
+              "target": "proc_macro2"
+            },
+            {
+              "id": "quote 1.0.21",
+              "target": "quote"
+            },
+            {
+              "id": "syn 1.0.101",
+              "target": "syn"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "1.0.37"
+      },
+      "license": "MIT OR Apache-2.0"
+    },
     "tinyvec 1.6.0": {
       "name": "tinyvec",
       "version": "1.6.0",
@@ -6245,6 +6408,7 @@
   ],
   "workspace_members": {
     "direct-cargo-bazel-deps 0.0.1": "",
+    "github 0.1.0": "rust/github",
     "show-latest-release 0.1.0": "cmd/show-latest-release"
   },
   "conditions": {
