@@ -1,5 +1,5 @@
 {
-  "checksum": "2cef932082f0bf1fe9e39c29863c2cda73f80cba284e7803684c0379927f8759",
+  "checksum": "3eb3acaa1aa5de600d7bc77c3d15ff6c142f162cd75e228b69b3be8a42c1f708",
   "crates": {
     "anyhow 1.0.65": {
       "name": "anyhow",
@@ -2840,7 +2840,7 @@
               "target": "build_script_build"
             },
             {
-              "id": "smallvec 1.9.0",
+              "id": "smallvec 1.10.0",
               "target": "smallvec"
             }
           ],
@@ -4063,13 +4063,13 @@
       },
       "license": "MIT"
     },
-    "smallvec 1.9.0": {
+    "smallvec 1.10.0": {
       "name": "smallvec",
-      "version": "1.9.0",
+      "version": "1.10.0",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/smallvec/1.9.0/download",
-          "sha256": "2fd0db749597d91ff862fd1d55ea87f7855a744a8425a64695b6fca237d1dad1"
+          "url": "https://crates.io/api/v1/crates/smallvec/1.10.0/download",
+          "sha256": "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
         }
       },
       "targets": [
@@ -4092,7 +4092,7 @@
           "**"
         ],
         "edition": "2018",
-        "version": "1.9.0"
+        "version": "1.10.0"
       },
       "license": "MIT OR Apache-2.0"
     },

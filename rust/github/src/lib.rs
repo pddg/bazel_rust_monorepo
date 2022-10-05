@@ -11,6 +11,14 @@ pub enum Error {
     Reqwest(#[from] reqwest::Error),
 }
 
+fn interpret_error(status: u16) -> Error {
+    assert!(status >= 400, "given status is not an error");
+    if status < 500 {
+        return Error::InvalidRequest(status);
+    }
+    return Error::Unavailable(status);
+}
+
 pub struct Client {
     base_url: String,
 }
@@ -36,10 +44,7 @@ impl Client {
             .await?;
         let status = resp.status().as_u16();
         if status != 200 {
-            if status < 500 {
-                return Err(Error::InvalidRequest(status));
-            }
-            return Err(Error::Unavailable(status));
+            return Err(interpret_error(status));
         }
         Ok(resp.json::<Release>().await?)
     }
@@ -50,4 +55,34 @@ pub struct Release {
     pub url: String,
     pub tag_name: String,
     pub name: String,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn status_4xx_cause_invalid_request() {
+        let actual = interpret_error(400);
+        match actual {
+            Error::InvalidRequest(_) => {}
+            _ => {
+                panic!("unexpected errror: {:?}", actual)
+            }
+        }
+    }
+    #[test]
+    fn status_5xx_cause_unavailable_error() {
+        let actual = interpret_error(500);
+        match actual {
+            Error::Unavailable(_) => {}
+            _ => {
+                panic!("unexpected errror: {:?}", actual)
+            }
+        }
+    }
+    #[test]
+    #[should_panic]
+    fn status_2xx_cause_panic() {
+        interpret_error(200);
+    }
 }
