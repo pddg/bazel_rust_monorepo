@@ -1,5 +1,5 @@
 load("@crate_index//:defs.bzl", "all_crate_deps")
-load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test", "rust_test_suite")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -15,6 +15,14 @@ rust_test(
     name = "github_test",
     crate = ":github",
     deps = all_crate_deps(
+        normal_dev=True,
+    ),
+)
+
+rust_test_suite(
+    name = "github_test_suite",
+    srcs = glob(["tests/**/*.rs"]),
+    deps = [":github"] + all_crate_deps(
         normal_dev=True,
     ),
 )

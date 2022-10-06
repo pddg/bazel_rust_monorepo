@@ -50,7 +50,7 @@ impl Client {
     }
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, PartialEq, Debug)]
 pub struct Release {
     pub url: String,
     pub tag_name: String,
