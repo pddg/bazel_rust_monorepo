@@ -16,7 +16,7 @@ fn interpret_error(status: u16) -> Error {
     if status < 500 {
         return Error::InvalidRequest(status);
     }
-    return Error::Unavailable(status);
+    Error::Unavailable(status)
 }
 
 pub struct Client {
@@ -25,9 +25,9 @@ pub struct Client {
 
 impl Client {
     pub fn new(base_url: &str) -> Client {
-        return Client {
+        Client {
             base_url: base_url.to_string(),
-        };
+        }
     }
 
     pub async fn get_latest_release(&self, owner: &str, repo: &str) -> Result<Release, Error> {
@@ -50,7 +50,7 @@ impl Client {
     }
 }
 
-#[derive(Deserialize, PartialEq, Debug)]
+#[derive(Deserialize, PartialEq, Eq, Debug)]
 pub struct Release {
     pub url: String,
     pub tag_name: String,
