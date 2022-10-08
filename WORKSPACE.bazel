@@ -11,30 +11,54 @@ http_archive(
     ],
 )
 
-load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
+load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains", "rust_analyzer_toolchain_repository")
 
 rules_rust_dependencies()
 
 rust_register_toolchains(
     edition = "2021",
-    version = "1.64.0",
+    version = "1.63.0",
 )
 
-load("@rules_rust//crate_universe:defs.bzl", "crates_repository")
+register_toolchains(rust_analyzer_toolchain_repository(
+    name = "rust_analyzer_toolchain",
+    version = "1.63.0",
+))
+
+load("@rules_rust//tools/rust_analyzer:deps.bzl", "rust_analyzer_dependencies")
+
+rust_analyzer_dependencies()
+
+load("@rules_rust//crate_universe:defs.bzl", "crates_repository", "crate")
 
 crates_repository(
     name = "crate_index",
-    # CargoのLockファイルへのパス
-    cargo_lockfile = "//:Cargo.lock",
-    # bazelが管理するLockファイル、まだ存在しない
     lockfile = "//:Cargo.Bazel.lock",
-    # 実在するCargo.tomlへのパス
-    manifests = [
-        "//:Cargo.toml",
-        "//cmd/show-latest-release:Cargo.toml",
-        "//rust/github:Cargo.toml",
-    ],
-    rust_version = "1.64.0",
+    cargo_lockfile = "//:Cargo.lock",
+    packages = {
+        "tokio": crate.spec(
+            version = "1.21.2",
+            features = ["full"],
+        ),
+        "reqwest": crate.spec(
+            version = "0.11.12",
+            features = ["json"],
+        ),
+        "serde": crate.spec(
+            version = "1.0.145",
+            features = ["derive"],
+        ),
+        "wiremock": crate.spec(
+            version = "0.5.14",
+        ),
+        "thiserror": crate.spec(
+            version = "1.0.37",
+        ),
+        "anyhow": crate.spec(
+            version = "1.0.65",
+        ),
+    },
+    rust_version = "1.63.0",
 )
 
 load("@crate_index//:defs.bzl", "crate_repositories")

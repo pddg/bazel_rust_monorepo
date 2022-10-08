@@ -3,4 +3,5 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
+    "task.allowAutomaticTasks": "on",
 }

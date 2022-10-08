@@ -1,5 +1,5 @@
 {
-  "checksum": "27543d739503f05dbe49fa837c87a139cc7d84684a74be5389896cfd5dcd154d",
+  "checksum": "50b84d4cb75b083279b62ff4033777808c8a1dff2d1b961660dd74850ec414de",
   "crates": {
     "aho-corasick 0.7.19": {
       "name": "aho-corasick",
@@ -261,7 +261,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -839,6 +839,35 @@
         "compile_data_glob": [
           "**"
         ],
+        "deps": {
+          "common": [
+            {
+              "id": "anyhow 1.0.65",
+              "target": "anyhow"
+            },
+            {
+              "id": "reqwest 0.11.12",
+              "target": "reqwest"
+            },
+            {
+              "id": "serde 1.0.145",
+              "target": "serde"
+            },
+            {
+              "id": "thiserror 1.0.37",
+              "target": "thiserror"
+            },
+            {
+              "id": "tokio 1.21.2",
+              "target": "tokio"
+            },
+            {
+              "id": "wiremock 0.5.14",
+              "target": "wiremock"
+            }
+          ],
+          "selects": {}
+        },
         "edition": "2018",
         "version": "0.0.1"
       },
@@ -1559,7 +1588,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -1902,64 +1931,6 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "github 0.1.0": {
-      "name": "github",
-      "version": "0.1.0",
-      "repository": null,
-      "targets": [
-        {
-          "Library": {
-            "crate_name": "github",
-            "crate_root": "src/lib.rs",
-            "srcs": {
-              "include": [
-                "**/*.rs"
-              ],
-              "exclude": []
-            }
-          }
-        }
-      ],
-      "library_target_name": "github",
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "reqwest 0.11.12",
-              "target": "reqwest"
-            },
-            {
-              "id": "serde 1.0.145",
-              "target": "serde"
-            },
-            {
-              "id": "thiserror 1.0.37",
-              "target": "thiserror"
-            }
-          ],
-          "selects": {}
-        },
-        "deps_dev": {
-          "common": [
-            {
-              "id": "tokio 1.21.2",
-              "target": "tokio"
-            },
-            {
-              "id": "wiremock 0.5.14",
-              "target": "wiremock"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2021",
-        "version": "0.1.0"
-      },
-      "license": null
-    },
     "h2 0.3.14": {
       "name": "h2",
       "version": "0.3.14",
@@ -2031,7 +2002,7 @@
               "target": "tokio_util"
             },
             {
-              "id": "tracing 0.1.36",
+              "id": "tracing 0.1.37",
               "target": "tracing"
             }
           ],
@@ -2162,7 +2133,7 @@
               "target": "fnv"
             },
             {
-              "id": "itoa 1.0.3",
+              "id": "itoa 1.0.4",
               "target": "itoa"
             }
           ],
@@ -2514,7 +2485,7 @@
               "target": "httpdate"
             },
             {
-              "id": "itoa 1.0.3",
+              "id": "itoa 1.0.4",
               "target": "itoa"
             },
             {
@@ -2534,7 +2505,7 @@
               "target": "tower_service"
             },
             {
-              "id": "tracing 0.1.36",
+              "id": "tracing 0.1.37",
               "target": "tracing"
             },
             {
@@ -2839,13 +2810,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "itoa 1.0.3": {
+    "itoa 1.0.4": {
       "name": "itoa",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/itoa/1.0.3/download",
-          "sha256": "6c8af84674fe1f223a982c933a0ee1086ac4d4052aa0fb8060c12c6ad838e754"
+          "url": "https://crates.io/api/v1/crates/itoa/1.0.4/download",
+          "sha256": "4217ad341ebadf8d8e724e264f13e593e0648f5b3e94b3896a5df283be015ecc"
         }
       },
       "targets": [
@@ -2868,7 +2839,7 @@
           "**"
         ],
         "edition": "2018",
-        "version": "1.0.3"
+        "version": "1.0.4"
       },
       "license": "MIT OR Apache-2.0"
     },
@@ -3652,7 +3623,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -5235,7 +5206,7 @@
               "target": "build_script_build"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -5298,7 +5269,7 @@
         "deps": {
           "common": [
             {
-              "id": "itoa 1.0.3",
+              "id": "itoa 1.0.4",
               "target": "itoa"
             },
             {
@@ -5414,7 +5385,7 @@
               "target": "form_urlencoded"
             },
             {
-              "id": "itoa 1.0.3",
+              "id": "itoa 1.0.4",
               "target": "itoa"
             },
             {
@@ -5432,47 +5403,6 @@
         "version": "0.7.1"
       },
       "license": "MIT/Apache-2.0"
-    },
-    "show-latest-release 0.1.0": {
-      "name": "show-latest-release",
-      "version": "0.1.0",
-      "repository": null,
-      "targets": [
-        {
-          "Binary": {
-            "crate_name": "show-latest-release",
-            "crate_root": "src/main.rs",
-            "srcs": {
-              "include": [
-                "**/*.rs"
-              ],
-              "exclude": []
-            }
-          }
-        }
-      ],
-      "library_target_name": null,
-      "common_attrs": {
-        "compile_data_glob": [
-          "**"
-        ],
-        "deps": {
-          "common": [
-            {
-              "id": "anyhow 1.0.65",
-              "target": "anyhow"
-            },
-            {
-              "id": "tokio 1.21.2",
-              "target": "tokio"
-            }
-          ],
-          "selects": {}
-        },
-        "edition": "2021",
-        "version": "0.1.0"
-      },
-      "license": null
     },
     "signal-hook-registry 1.4.0": {
       "name": "signal-hook-registry",
@@ -5674,13 +5604,13 @@
       },
       "license": "MIT OR Apache-2.0"
     },
-    "syn 1.0.101": {
+    "syn 1.0.102": {
       "name": "syn",
-      "version": "1.0.101",
+      "version": "1.0.102",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/syn/1.0.101/download",
-          "sha256": "e90cde112c4b9690b8cbe810cba9ddd8bc1d7472e2cae317b69e9438c1cba7d2"
+          "url": "https://crates.io/api/v1/crates/syn/1.0.102/download",
+          "sha256": "3fcd952facd492f9be3ef0d0b7032a6e442ee9b361d4acc2b1d0c4aaa5f613a1"
         }
       },
       "targets": [
@@ -5737,7 +5667,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "build_script_build"
             },
             {
@@ -5748,7 +5678,7 @@
           "selects": {}
         },
         "edition": "2018",
-        "version": "1.0.101"
+        "version": "1.0.102"
       },
       "build_script_attrs": {
         "data_glob": [
@@ -5933,7 +5863,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -6212,7 +6142,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             }
           ],
@@ -6325,7 +6255,7 @@
               "target": "tokio"
             },
             {
-              "id": "tracing 0.1.36",
+              "id": "tracing 0.1.37",
               "target": "tracing"
             }
           ],
@@ -6369,13 +6299,13 @@
       },
       "license": "MIT"
     },
-    "tracing 0.1.36": {
+    "tracing 0.1.37": {
       "name": "tracing",
-      "version": "0.1.36",
+      "version": "0.1.37",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/tracing/0.1.36/download",
-          "sha256": "2fce9567bd60a67d08a16488756721ba392f24f29006402881e43b19aac64307"
+          "url": "https://crates.io/api/v1/crates/tracing/0.1.37/download",
+          "sha256": "8ce8c33a8d48bd45d624a6e523445fd21ec13d3653cd51f681abf67418f54eb8"
         }
       },
       "targets": [
@@ -6411,24 +6341,24 @@
               "target": "pin_project_lite"
             },
             {
-              "id": "tracing-core 0.1.29",
+              "id": "tracing-core 0.1.30",
               "target": "tracing_core"
             }
           ],
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.1.36"
+        "version": "0.1.37"
       },
       "license": "MIT"
     },
-    "tracing-core 0.1.29": {
+    "tracing-core 0.1.30": {
       "name": "tracing-core",
-      "version": "0.1.29",
+      "version": "0.1.30",
       "repository": {
         "Http": {
-          "url": "https://crates.io/api/v1/crates/tracing-core/0.1.29/download",
-          "sha256": "5aeea4303076558a00714b823f9ad67d58a3bbda1df83d8827d21193156e22f7"
+          "url": "https://crates.io/api/v1/crates/tracing-core/0.1.30/download",
+          "sha256": "24eb03ba0eab1fd845050058ce5e616558e8f8d8fca633e6b163fe25c797213a"
         }
       },
       "targets": [
@@ -6464,7 +6394,7 @@
           "selects": {}
         },
         "edition": "2018",
-        "version": "0.1.29"
+        "version": "0.1.30"
       },
       "license": "MIT"
     },
@@ -6993,7 +6923,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             },
             {
@@ -7156,7 +7086,7 @@
               "target": "quote"
             },
             {
-              "id": "syn 1.0.101",
+              "id": "syn 1.0.102",
               "target": "syn"
             },
             {
@@ -8095,9 +8025,7 @@
     "cc 1.0.73"
   ],
   "workspace_members": {
-    "direct-cargo-bazel-deps 0.0.1": "",
-    "github 0.1.0": "rust/github",
-    "show-latest-release 0.1.0": "cmd/show-latest-release"
+    "direct-cargo-bazel-deps 0.0.1": ""
   },
   "conditions": {
     "aarch64-pc-windows-msvc": [],
